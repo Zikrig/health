@@ -1,6 +1,7 @@
 from aiogram import Router, F, Bot
 from aiogram.filters import Command
 from aiogram.types import Message, ReplyKeyboardRemove, CallbackQuery
+from aiogram.fsm.state import State, StateGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.enums import ParseMode
 
@@ -179,20 +180,24 @@ async def process_feedback(message: Message, state: FSMContext, bot: Bot):
     await state.set_state(UserState.main)
     await message.answer("Спасибо за вашу обратную связь! 💕")
     
-@router.message.middleware()
-async def check_user_registration(message: Message, state: FSMContext, pool, bot: Bot):
-    current_state = await state.get_state()
+@router.message(StateFilter(None))
+async def handle_unregistered_user(message: Message, state: FSMContext, pool, bot: Bot):
+    # Проверяем, зарегистрирован ли пользователь в базе
+    async with pool.acquire() as conn:
+        user = await get_user_data(conn, message.from_user.id)
     
-    # Если состояние не установлено, проверяем, зарегистрирован ли пользователь
-    if current_state is None:
-        async with pool.acquire() as conn:
-            user_data = await get_user_data(conn, message.from_user.id)
-            
-            if user_data and user_data.get('period'):
-                # Пользователь зарегистрирован, устанавливаем состояние main
-                await state.set_state(UserState.main)
-                await state.update_data(
-                    name=user_data.get('name'),
-                    period=user_data.get('period')
-                )
-                await process_main(message, state, pool, bot)
+    if user:
+        # Если пользователь найден в базе, восстанавливаем его состояние
+        await state.set_state(UserState.main)
+        await state.update_data(
+            name=user['name'],
+            period=user['period']
+        )
+        # Обрабатываем сообщение как обычно
+        await process_main(message, state, pool, bot)
+    else:
+        # Если пользователь не найден, предлагаем начать с /start
+        await message.answer(
+            "Пожалуйста, начните с команды /start",
+            reply_markup=ReplyKeyboardRemove()
+        )
