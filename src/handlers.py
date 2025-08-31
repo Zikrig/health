@@ -180,7 +180,7 @@ async def process_feedback(message: Message, state: FSMContext, bot: Bot):
     await state.set_state(UserState.main)
     await message.answer("Спасибо за вашу обратную связь! 💕")
     
-@router.message(StateFilter(None))
+@router.message()
 async def handle_unregistered_user(message: Message, state: FSMContext, pool, bot: Bot):
     # Проверяем, зарегистрирован ли пользователь в базе
     async with pool.acquire() as conn:
