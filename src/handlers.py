@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 from config import TRIGGER_WORDS, ADMINS
 from states import UserState
 from keyboards import get_period_keyboard, get_feedback_keyboard
-from database import save_user, update_user_period, get_stats, get_period_stats, increment_question_count
+from database import save_user, update_user_period, get_stats, get_period_stats, increment_question_count, get_user_data
 from utils import ask_deepseek
 
 router = Router()
@@ -178,3 +178,21 @@ async def process_feedback(message: Message, state: FSMContext, bot: Bot):
     
     await state.set_state(UserState.main)
     await message.answer("Спасибо за вашу обратную связь! 💕")
+    
+@router.message.middleware()
+async def check_user_registration(message: Message, state: FSMContext, pool, bot: Bot):
+    current_state = await state.get_state()
+    
+    # Если состояние не установлено, проверяем, зарегистрирован ли пользователь
+    if current_state is None:
+        async with pool.acquire() as conn:
+            user_data = await get_user_data(conn, message.from_user.id)
+            
+            if user_data and user_data.get('period'):
+                # Пользователь зарегистрирован, устанавливаем состояние main
+                await state.set_state(UserState.main)
+                await state.update_data(
+                    name=user_data.get('name'),
+                    period=user_data.get('period')
+                )
+                await process_main(message, state, pool, bot)

@@ -69,3 +69,11 @@ async def get_period_stats(conn):
         GROUP BY period
         ORDER BY user_count DESC
     """)
+    
+    # database.py
+async def get_user_data(conn, user_id):
+    row = await conn.fetchrow(
+        "SELECT name, period FROM users WHERE user_id = $1",
+        user_id
+    )
+    return dict(row) if row else None
