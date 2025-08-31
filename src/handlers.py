@@ -1,7 +1,6 @@
 from aiogram import Router, F, Bot
 from aiogram.filters import Command
 from aiogram.types import Message, ReplyKeyboardRemove, CallbackQuery
-from aiogram.fsm.state import State, StateGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.enums import ParseMode
 
