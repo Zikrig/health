@@ -3,6 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:13-alpine
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -14,6 +15,7 @@ services:
 
   bot:
     build: .
+    restart: unless-stopped
     depends_on:
       - postgres
     environment:
