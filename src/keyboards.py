@@ -6,7 +6,7 @@ def get_period_keyboard():
         keyboard=[
             [KeyboardButton(text="Готовлюсь"), KeyboardButton(text="Беременна")],
             [KeyboardButton(text="Ребенку меньше года")],
-            [KeyboardButton(text="Ребенку 2-3 года"), KeyboardButton(text="Ребенку 3+ года")],
+            [KeyboardButton(text="Ребенку 1-2 года"), KeyboardButton(text="Ребенку 3+ года")],
             [KeyboardButton(text="Я - папа")]
         ],
         resize_keyboard=True
