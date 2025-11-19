@@ -457,6 +457,33 @@ async def process_question(message: Message, state: FSMContext, pool, bot: Bot):
                 pass
 
 
+@router.callback_query(F.data == "menu")
+async def menu_callback(callback: CallbackQuery, state: FSMContext, pool):
+    """Обработка нажатия на кнопку 'Меню' - аналогично команде /start"""
+    # Проверяем, зарегистрирован ли пользователь
+    async with pool.acquire() as conn:
+        user = await get_user_data(conn, callback.from_user.id)
+    
+    if user:
+        # Пользователь уже зарегистрирован - просто показываем меню
+        await state.set_state(UserState.main)
+        await state.update_data(name=user['name'], period=user['period'])
+        await callback.message.edit_reply_markup(reply_markup=None)
+        await callback.message.answer(
+            "Выбери, что тебя интересует:",
+            reply_markup=get_main_menu_keyboard()
+        )
+    else:
+        # Новый пользователь - начинаем регистрацию
+        await state.set_state(UserState.name)
+        await callback.message.edit_reply_markup(reply_markup=None)
+        await callback.message.answer(
+            "Как тебя зовут?",
+            reply_markup=ReplyKeyboardRemove()
+        )
+    
+    await callback.answer()
+
 @router.callback_query(F.data == "feedback")
 async def feedback_callback(callback: CallbackQuery, state: FSMContext):
     await state.set_state(UserState.waiting_feedback)

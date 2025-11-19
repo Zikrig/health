@@ -43,7 +43,10 @@ def get_more_materials_keyboard():
 def get_feedback_keyboard():
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="Обратная связь", callback_data="feedback")]
+            [
+                InlineKeyboardButton(text="Меню", callback_data="menu"),
+                InlineKeyboardButton(text="Обратная связь", callback_data="feedback")
+            ]
         ]
     )
 
