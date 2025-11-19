@@ -21,8 +21,7 @@ services:
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
       DB_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
-      YANDEX_API_KEY: ${YANDEX_API_KEY}
-      YANDEX_FOLDER_ID: ${YANDEX_FOLDER_ID}
+
       ADMINS: ${ADMINS}
 
 volumes:
