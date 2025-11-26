@@ -69,8 +69,8 @@ async def process_period(message: Message, state: FSMContext, pool):
         "ребенку меньше года": "ребенку меньше года",
         "ребенку 2-3": "ребенку 2-3",
         "ребенку 3+": "ребенку 3+"
-    }
-    
+}
+
     normalized_period = period_map.get(period, period)
     await state.update_data(period=normalized_period)
     
@@ -141,7 +141,7 @@ async def cmd_stats(message: Message, pool):
         stats_text.append(f"• {stat['period']}: {stat['user_count']} пользователей, {stat['total_questions']} вопросов")
 
     await message.answer("\n".join(stats_text))
-
+    
 @router.message(Command("send"))
 async def cmd_send(message: Message, state: FSMContext):
     """Команда для админов для рассылки сообщений всем пользователям"""
@@ -514,7 +514,7 @@ async def process_feedback(message: Message, state: FSMContext, bot: Bot):
     
     await state.set_state(UserState.main)
     await message.answer("Спасибо за вашу обратную связь! 💕")
-
+    
 # Обработка callback для подписки/отписки на поддержку
 @router.callback_query(F.data.in_(["subscribe_support", "unsubscribe_support"]))
 async def handle_support_subscription(callback: CallbackQuery, pool):
